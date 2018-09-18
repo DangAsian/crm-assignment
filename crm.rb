@@ -116,10 +116,13 @@ class CRM
     attribute = gets.chomp
     puts "Please input the #{attribute}"
     value = gets.chomp
-    contact = Contact.find_by(attribute => value)
+    begin contact = Contact.find_by(attribute => value)
     puts "First Name: #{contact.first_name}  Last Name: #{ contact.last_name}  Email: #{contact.email} \s Note: #{contact.note} ID: #{contact.id}"
-
+    rescue
+    puts "nope"
   end
+end
+
 
 
 end
