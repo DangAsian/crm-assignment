@@ -88,7 +88,7 @@ class CRM
     new_attribute = gets.chomp
     puts "What would you like to change this attribute to"
     new_value = gets.chomp
-    new_contact.update(new_attribute, new_value)
+    new_contact.update(new_attribute => new_value)
     # modify_option(attribute)
   end
 
@@ -111,16 +111,29 @@ class CRM
   end
 
   def search_by_attribute
+
     puts "What attribute do you want to search for"
     attribute = gets.chomp
     puts "Please input the #{attribute}"
     value = gets.chomp
-    contact = Contact.find_by(attribute, value)
+    contact = Contact.find_by(attribute => value)
     puts "First Name: #{contact.first_name}  Last Name: #{ contact.last_name}  Email: #{contact.email} \s Note: #{contact.note} ID: #{contact.id}"
+
   end
+
 
 end
 
 at_exit do
   ActiveRecord::Base.connection.close
 end
+
+newcrm = CRM.new()
+newcrm.main_menu
+
+
+# Contact.create(first_name: "Daniel")
+# puts Contact.all.inspect
+# user = Contact.find_by(first_name: "Daniel")
+# user.delete
+# puts Contact.all.inspect
