@@ -20,6 +20,3 @@ end
 
 
 Contact.auto_upgrade!
-
-contact1 = Contact.create("Dan", "Ang", "dan@gmail.com", "no")
-contact2 = Contact.create("Molly", "Wei", "dan@gmail.com", "no")
